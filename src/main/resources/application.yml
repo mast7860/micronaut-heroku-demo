@@ -6,7 +6,21 @@ micronaut:
     port: ${PORT:8080}
     cors:
       enabled: true
+
 netty:
   default:
     allocator:
       max-order: 3
+
+datasources:
+  default:
+    url: jdbc:postgresql://${DATABSE_HOST:`localhost`}:${DATABSE_PORT:`5432`}/${DATABSE_NAME:`postgres`}
+    driverClassName: org.postgresql.Driver
+    username: ${DATABSE_USERNAME:`postgres`}
+    password: ${DATABSE_PASSWORD:`password`}
+    dialect: POSTGRES
+
+flyway:
+  datasources:
+    default:
+      enabled: true
